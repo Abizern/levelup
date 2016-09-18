@@ -32,7 +32,7 @@ class Data {
         self.max = max
     }
     
-    func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+    func tabBar(_ tabBar: UITabBar, didSelectItem item: UITabBarItem) {
         print("changed")
     }
 

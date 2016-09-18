@@ -14,7 +14,7 @@ class DataLoader {
     init() {
         self.loadData()
     }
-    private func loadData() {
+    fileprivate func loadData() {
         
         let json = self.jsonObject()
         guard let playerStats = json?["playerstats"] as? [String:AnyObject] else {
@@ -54,14 +54,14 @@ class DataLoader {
 
     }
     
-    private func jsonObject() -> [String: AnyObject]? {
-        guard let dataUrl = NSBundle.mainBundle().URLForResource("tf2", withExtension: "json") else {
+    fileprivate func jsonObject() -> [String: AnyObject]? {
+        guard let dataUrl = Bundle.main.url(forResource: "tf2", withExtension: "json") else {
             return nil
         }
-        guard let data = NSData(contentsOfURL: dataUrl) else {
+        guard let data = try? Foundation.Data(contentsOf: dataUrl) else {
             return nil
         }
         
-        return (try? NSJSONSerialization.JSONObjectWithData(data, options: [])) as? [String: AnyObject]
+        return (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String: AnyObject]
     }
 }

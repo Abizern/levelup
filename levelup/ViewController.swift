@@ -23,14 +23,14 @@ class ViewController: UIViewController, UITabBarDelegate {
     @IBOutlet weak var demomanNumber: UILabel!
     @IBOutlet weak var pyroNumber: UILabel!
     
-    private let dataLoader = DataLoader()
+    fileprivate let dataLoader = DataLoader()
         
-    func tabBar(dataTabs: UITabBar, didSelectItem item: UITabBarItem) {
+    func tabBar(_ dataTabs: UITabBar, didSelect item: UITabBarItem) {
         let data = dataLoader.dataArray[item.tag-1]
         self.updateUI(with: data)
     }
     
-    private func updateUI(with data: Data) {
+    fileprivate func updateUI(with data: Data) {
         scoutNumber.text = String(data.scoutInt)
         demomanNumber.text = String(data.demomanInt)
         pyroNumber.text = String(data.pyroInt)
@@ -49,11 +49,11 @@ class ViewController: UIViewController, UITabBarDelegate {
         let backgroundRingColour = UIColor(white: 0.15, alpha: 1.0)
         redRing.ringBackgroundColour = backgroundRingColour
 
-        orangeRing.ringColour = UIColor.orangeColor()
+        orangeRing.ringColour = UIColor.orange
         orangeRing.ringStrokeWidth = 30.0
         orangeRing.ringBackgroundColour = backgroundRingColour
         
-        yellowRing.ringColour = UIColor.yellowColor()
+        yellowRing.ringColour = UIColor.yellow
         yellowRing.ringStrokeWidth = 25.0
         yellowRing.ringBackgroundColour = backgroundRingColour
         
